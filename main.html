@@ -1,8 +1,11 @@
 <HTML>
+<head>
+    <meta charset="utf-8">
+</head>
 <BODY>
-<canvas id="lab04" width="800" height="532" style="border:1px solid black;">
+<canvas id="lab04" width="500" height="400" style="border:1px solid black;">
 </canvas>
-<canvas id="lab04_1" width="800" height="532" style="border:1px solid black;">
+<canvas id="lab04_1" width="500" height="400" style="border:1px solid black;">
 </canvas>
 <script>
     var canvas = document.getElementById("lab04");
@@ -25,39 +28,21 @@
         for (var i=1; i<h-1; i++) {
             for (var j=1; j<w-1; j++) {
                 if (idata.data[(i*w+j)*4+3] != 0) {
-                    idata1.data[(i*w+j)*4] = ((idata.data[((i-1)*w+(j-1))*4]*(-1))**2 + (idata.data[((i-1)*w+j)*4]*(-2))**2 + (idata.data[((i-1)*w+(j+1))*4]*(-1))**2 +
-                        (idata.data[(i*w+(j-1))*4]*0)**2 + (idata.data[(i*w+j)*4]*0)**2 + (idata.data[(i*w+(j+1))*4]*0)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4]*1)**2 + (idata.data[((i+1)*w+j)*4]*2)**2 + (idata.data[((i+1)*w+(j+1))*4]*1)**2 +
-                        (idata.data[((i-1)*w+(j-1))*4]*(-1))**2 + (idata.data[((i-1)*w+j)*4]*0)**2 + (idata.data[((i-1)*w+(j+1))*4]*1)**2 +
-                        (idata.data[(i*w+(j-1))*4]*(-2))**2 + (idata.data[(i*w+j)*4]*0)**2 + (idata.data[(i*w+(j+1))*4]*2)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4]*(-1))**2 + (idata.data[((i+1)*w+j)*4]*0)**2 + (idata.data[((i+1)*w+(j+1))*4]*1)**2) ** 0.5;
-
-                    idata1.data[(i*w+j)*4+1] = ((idata.data[((i-1)*w+(j-1))*4+1]*(-1))**2 + (idata.data[((i-1)*w+j)*4+1]*(-2))**2 + (idata.data[((i-1)*w+(j+1))*4+1]*(-1))**2 +
-                        (idata.data[(i*w+(j-1))*4+1]*0)**2 + (idata.data[(i*w+j)*4+1]*0)**2 + (idata.data[(i*w+(j+1))*4+1]*0)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4+1]*1)**2 + (idata.data[((i+1)*w+j)*4+1]*2)**2 + (idata.data[((i+1)*w+(j+1))*4+1]*1)**2 +
-                        (idata.data[((i-1)*w+(j-1))*4+1]*(-1))**2 + (idata.data[((i-1)*w+j)*4+1]*0)**2 + (idata.data[((i-1)*w+(j+1))*4+1]*1)**2 +
-                        (idata.data[(i*w+(j-1))*4+1]*(-2))**2 + (idata.data[(i*w+j)*4+1]*0)**2 + (idata.data[(i*w+(j+1))*4+1]*2)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4+1]*(-1))**2 + (idata.data[((i+1)*w+j)*4+1]*0)**2 + (idata.data[((i+1)*w+(j+1))*4+1]*1)**2) ** 0.5;
-
-                    idata1.data[(i*w+j)*4+2] = ((idata.data[((i-1)*w+(j-1))*4+2]*(-1))**2 + (idata.data[((i-1)*w+j)*4+2]*(-2))**2 + (idata.data[((i-1)*w+(j+1))*4+2]*(-1))**2 +
-                        (idata.data[(i*w+(j-1))*4+2]*0)**2 + (idata.data[(i*w+j)*4+2]*0)**2 + (idata.data[(i*w+(j+1))*4+2]*0)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4+2]*1)**2 + (idata.data[((i+1)*w+j)*4+2]*2)**2 + (idata.data[((i+1)*w+(j+1))*4+2]*1)**2 +
-                        (idata.data[((i-1)*w+(j-1))*4+2]*(-1))**2 + (idata.data[((i-1)*w+j)*4+2]*0)**2 + (idata.data[((i-1)*w+(j+1))*4+2]*1)**2 +
-                        (idata.data[(i*w+(j-1))*4+2]*(-2))**2 + (idata.data[(i*w+j)*4+2]*0)**2 + (idata.data[(i*w+(j+1))*4+2]*2)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4+2]*(-1))**2 + (idata.data[((i+1)*w+j)*4+2]*0)**2 + (idata.data[((i+1)*w+(j+1))*4+2]*1)**2) ** 0.5;
-
-                    idata1.data[(i*w+j)*4+3] = ((idata.data[((i-1)*w+(j-1))*4+3]*(-1))**2 + (idata.data[((i-1)*w+j)*4+3]*(-2))**2 + (idata.data[((i-1)*w+(j+1))*4+3]*(-1))**2 +
-                        (idata.data[(i*w+(j-1))*4+3]*0)**2 + (idata.data[(i*w+j)*4+3]*0)**2 + (idata.data[(i*w+(j+1))*4+3]*0)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4+3]*1)**2 + (idata.data[((i+1)*w+j)*4+3]*2)**2 + (idata.data[((i+1)*w+(j+1))*4+3]*1)**2 +
-                        (idata.data[((i-1)*w+(j-1))*4+3]*(-1))**2 + (idata.data[((i-1)*w+j)*4+3]*0)**2 + (idata.data[((i-1)*w+(j+1))*4+3]*1)**2 +
-                        (idata.data[(i*w+(j-1))*4+3]*(-2))**2 + (idata.data[(i*w+j)*4+3]*0)**2 + (idata.data[(i*w+(j+1))*4+3]*2)**2 +
-                        (idata.data[((i+1)*w+(j-1))*4+3]*(-1))**2 + (idata.data[((i+1)*w+j)*4+3]*0)**2 + (idata.data[((i+1)*w+(j+1))*4+3]*1)**2) ** 0.5;
+                    for (var k = 0; k < 3; k++) {
+                        G_x = (- idata.data[((i-1)*w+(j-1))*4 + k] + idata.data[((i-1)*w+(j+1))*4 + k] - 2 * idata.data[(i*w+(j-1))*4 + k] +
+                            2 * idata.data[(i*w+(j+1))*4 + k] - idata.data[((i+1)*w+(j-1))*4 + k] + idata.data[((i+1)*w+(j+1))*4 + k]);
+                        G_y = (- idata.data[((i-1)*w+(j-1))*4 + k] - idata.data[((i-1)*w+(j+1))*4 + k] - 2 * idata.data[((i-1)*w+j)*4 + k] +
+                            2 * idata.data[((i+1)*w+j)*4 + k] + idata.data[((i+1)*w+(j-1))*4 + k] + idata.data[((i+1)*w+(j+1))*4 + k]);
+                        G_x = Math.floor(Math.sqrt(G_x**2 + G_y**2));
+                        idata1.data[(i*w+j)*4+k] = G_x;
+                    }
+                    idata1.data[(i*w+j)*4+3] = idata.data[(i*w+j)*4+3];
                 }
             }
         }
         ctx1.putImageData(idata1, 0, 0);
     };
-    img.src = "https://bigpicture.ru/wp-content/uploads/2015/11/nophotoshop29-800x532.jpg";
+    img.src = "https://upload.wikimedia.org/wikipedia/commons/f/f0/Valve_original_%281%29.PNG";
 </script>
 </BODY>
 </HTML>
